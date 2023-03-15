@@ -15,12 +15,6 @@ class WriteManager:
     # send_beat() {regulary sends beat to load balanacer, other managers using separate thread}
     # recv_beat() {from brokers}
         
-    
-    # create_topic(topic_name)
-    # def create_topic(topic_name): may be Partion is also needed
-    # @staticmethod
-    # def updateConsumerPartition(consumer_id,new_part_metadata):
-    #     ConsumerMetadata.updateConsumerPartition(consumer_id=consumer_id,new_partition_metadata=new_part_metadata)
 
     @staticmethod
     def receive_heartbeat(broker_id, ip, port):
@@ -64,7 +58,6 @@ class WriteManager:
 
     @staticmethod
     def getBalancedPartition(topic_name):
-        # active_brokers = BrokerMetadata.get_active_brokers()
 
         partition_ids = PartitionMetadata.listPartition_IDs(topic_name)
         if(len(partition_ids)==0):
@@ -135,15 +128,6 @@ class WriteManager:
             return -1
             # pass # TODO: add errors here baad mein
         
-
-    # def send_heartbeat(endpoint):
-    #     requests.post(endpoint,data="")
-
-    
-
-    # enqueue(topic_name, producer_id, message) -> success ack
-    #   {use global msg_id, select broker, generate/select paritition_id}
-    #   {creating new partitions on existing brokers}
     
 
     @staticmethod
@@ -177,16 +161,8 @@ class WriteManager:
             PartitionMetadata.increaseSize(topic_name=topic_name,partition_id=partition_id)
         return response
     
-        # return WriteManager.send_request(broker_endpoint, topic_name, partition_id, message)
   
     # list_topics()
     @staticmethod
     def list_topics():
         return PartitionMetadata.listTopics()
-    
-    
-
-    ## Write Ahead Logging (TODO Later)
-    # General Flow : Receive a request -> log the transaction with enough info to restore
-    #                -> interact with broker -> change state of transaction -> sync with other managers
-    #                -> commit changes to DB -> delete trasaction_log

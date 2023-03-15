@@ -48,7 +48,6 @@ def hello_world():
 def enqueue():
     print("produce")
     dict = request.get_json()
-    print(dict)
     topic = dict['topic_name']
     partition_id = dict['partition_id']
     message = dict['message']
@@ -166,7 +165,7 @@ if __name__ == '__main__':
 
     # global broker
     with app.app_context():
-        db.create_all()  # <--- create db object.
+        db.create_all()  # create db object.
         broker_id = ID.getID()
         if (broker_id == -1):
             hostname = socket.gethostname()
