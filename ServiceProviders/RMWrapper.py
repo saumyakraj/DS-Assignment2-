@@ -120,6 +120,7 @@ if __name__ == '__main__':
 	args = cmdline_args()
 	# global broker
 	with app.app_context():
+		db.drop_all()
 		db.create_all() # <--- create db object.
 	
 	# app.run(debug=True, port = args.port)
