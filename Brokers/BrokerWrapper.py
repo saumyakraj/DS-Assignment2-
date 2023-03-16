@@ -165,7 +165,6 @@ if __name__ == '__main__':
 
     # global broker
     with app.app_context():
-        db.drop_all()
         db.create_all()  # create db object.
         broker_id = ID.getID()
         if (broker_id == -1):
