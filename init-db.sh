@@ -13,7 +13,7 @@ cp /etc/postgresql/pg_hba.conf /var/lib/postgresql/data
 
 
 pg_basebackup -D /var/lib/postgresql/data_read_1 -S replication_slot_read_1 -X stream -P -U replicator -Fp -R 
-pg_basebackup -D /var/lib/postgresql/data_read_2 -S replication_slot_read_2 -X stream -P -U replicator -Fp -R 
+pg_basebackup -D /var/lib/postgresql/data_read_2 -S replicatipg_basebackupon_slot_read_2 -X stream -P -U replicator -Fp -R 
 
 cp /var/lib/postgresql/data/postgresql.conf /var/lib/postgresql/data_read_1/
 cp /var/lib/postgresql/data/pg_hba.conf /var/lib/postgresql/data_read_1/

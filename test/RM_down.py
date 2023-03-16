@@ -171,15 +171,15 @@ def test(HOST, PORT):
         for _ in range(num_of_messages):
             print()
 
-            url = url = base_url + "/size"
-            print(f"Size of topic_1 for given consumer")
-            r = requests.get(url, json=data)
-            response = r.json()
-            print("Response")
-            print(response)
+            # url = url = base_url + "/size"
+            # print(f"Size of topic_1 for given consumer")
+            # r = requests.get(url, json=data)
+            # response = r.json()
+            # print("Response")
+            # print(response)
             
-            if response['size'] == 0:
-                break
+            # if response['size'] == 0:
+            #     break
             
             print()
             print(f"Consuming messages")
